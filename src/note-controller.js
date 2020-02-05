@@ -2,7 +2,6 @@
   function Controller(noteListModel) {
     this.noteListModel = noteListModel;
     this.noteListView = NoteListView(this.noteListModel);
-
   }
 
   Controller.prototype.changeText = function(text) {
