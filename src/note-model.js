@@ -6,5 +6,9 @@
   Note.prototype.viewNote = function () {
     return this.text
   }
-  exports.Note = Note
+  
+  var note = function(text) {
+    return new Note(text)
+  }
+  exports.Note = note
 })(this)

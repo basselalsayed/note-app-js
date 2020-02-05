@@ -1,6 +1,8 @@
 (function(exports) {
-  function Controller(noteListModel = new NoteList()) {
-    this.noteListModel = noteListModel
+  function Controller(noteListModel) {
+    this.noteListModel = noteListModel;
+    this.noteListView = NoteListView(this.noteListModel);
+
   }
 
   Controller.prototype.changeText = function(text) {
@@ -8,11 +10,18 @@
     element.innerHTML = text;
   }
 
-  var controller = function() {
-    return new Controller()
+  Controller.prototype.addNote = function(note) {
+    this.noteListModel.addNote(note);
+  }
+  Controller.prototype.insertHTML = function() {
+    document.write(this.noteListView.displayNotes());
   }
 
-  exports.controller = controller
+  var controller = function(noteList) {
+    return new Controller(noteList)
+  }
+
+  exports.Controller = controller
 })(this)
 
 

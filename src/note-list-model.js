@@ -4,12 +4,14 @@
   }
 
   NoteList.prototype.addNote = function (note) {
-    this.list.push(new Note(note))
+    this.list.push(Note(note))
   }
 
   NoteList.prototype.viewAll = function () {
     return this.list
   }
 
-  exports.NoteList = NoteList
+  var noteList = function() { return new NoteList }
+
+  exports.NoteList = noteList
 })(this)
