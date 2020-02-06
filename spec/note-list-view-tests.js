@@ -1,42 +1,46 @@
 
 (function(exports) {
   let noteListView
-  // let noteList = new NoteList()
+  let noteList
+  let note
+  let note2
+  let note3
   // noteList.addNote('hello')
 
   function notesDisplay() {
     console.log('displayNotes')
-
-    let noteList = new NoteList()
-    noteList.addNote('hello')
-
+    setUp()
+    // note = Note('hello')
+    noteList.addNote(note)
     noteListView = new NoteListView(noteList)
-    
-    expect(noteListView.displayNotes()).toEqual('<ul><li><div>hello</div></li></ul>')
+    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a href='#notes/${note.id}'>hello</a></div></li></ul>`)
   }
 
   function notesDisplayMultiple() {
     console.log('displayNotesMultiple')
-
-    let noteList = new NoteList()
-    noteList.addNote("The text in a note could be too long to be shown in full in the main note list. In this challenge, youll update your note list view code to only show the first few characters ")
-    noteList.addNote('howdy')
-
+    setUp()
+    // note2 = new Note('howdy')
+    // note3 = new Note("The text in a note could be too long to be shown in full in the main note list. In this challenge, youll update your note list view code to only show the first few characters ")
+    noteList.addNote(note3)
+    noteList.addNote(note2)
     noteListView = new NoteListView(noteList)
-    
-    expect(noteListView.displayNotes()).toEqual('<ul><li><div>The text in a note c</div></li><li><div>howdy</div></li></ul>')
+    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a href='#notes/${note3.id}'>The text in a note c</a></div></li><li><div><a href='#notes/${note2.id}'>howdy</a></div></li></ul>`)
   }
 
 
   function notesDisplayNone() {
     console.log('displayNotesNone')
-
-    let noteList = new NoteList()
+    setUp()
     noteListView = new NoteListView(noteList)
-    
     expect(noteListView.displayNotes()).toEqual('Nothing to see here...')
   }
   
+  function setUp() {
+    noteList = new NoteList();
+    note = Note('hello');
+    note2 = Note('howdy');
+    note3 = Note("The text in a note could be too long to be shown in full in the main note list. In this challenge, youll update your note list view code to only show the first few characters ");
+  }
   
   notesDisplay()
   notesDisplayMultiple()

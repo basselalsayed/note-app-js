@@ -2,9 +2,8 @@
   function NoteList() {
     this.list = []
   }
-
-  NoteList.prototype.addNote = function (note) {
-    this.list.push(Note(note))
+  NoteList.prototype.addNote = function(note) {
+    this.list.push(note)
   }
 
   NoteList.prototype.viewAll = function () {
@@ -13,5 +12,5 @@
 
   var noteList = function() { return new NoteList }
 
-  exports.NoteList = noteList
+  exports.NoteList = noteList;
 })(this)

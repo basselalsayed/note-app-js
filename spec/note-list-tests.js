@@ -1,20 +1,26 @@
 (function(exports) {
   var noteList
+  var note
+  var note2
 
   function addNoteToArray() {
-    noteList = new NoteList()
+    setUp()
     console.log('addNoteToArray')
-    noteList.addNote('note1')
-
     expect(noteList.list[0].viewNote()).toEqual('note1')
   }
 
   function viewAllNotes() {
-    noteList = new NoteList()
+    setUp()
     console.log('viewAllNotes')
-    noteList.addNote('note1')
-    noteList.addNote('note2')
     expect(noteList.viewAll()[0]).toBe(new Note)
+  }
+
+  function setUp () {
+    noteList = new NoteList();
+    note = new Note('note1');
+    note2 = new Note('note2');
+    noteList.addNote(note);
+    noteList.addNote(note2);
   }
 
   addNoteToArray()

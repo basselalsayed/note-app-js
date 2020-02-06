@@ -1,11 +1,13 @@
 (function(exports) {
   var noteList
   var controller
+  var note1
+  var note2
 
   function addNoteFromController() {
     testSetup()
     console.log('add note to array from controller')
-    controller.addNote('note1')
+    controller.addNote(note1)
     expect(controller.noteListModel.list[0].viewNote()).toEqual('note1')
   }
 
@@ -23,7 +25,6 @@
     console.log("Inserting text from controller");
     fakeDiv()
     testSetup()
-    controller.addNote("Hello Partner")
     controller.insertHTML()
     expect(document.getElementsByTagName('li').item(0).innerText).toEqual('Hello Partner')
   }
@@ -37,6 +38,10 @@
   testSetup = function() {
     noteList = NoteList()
     controller = Controller(noteList)
+    note1 = Note('note1')
+    note2 = Note('"Hello Partner"')
+    noteList.addNote(note1)
+    noteList.addNote(note2)
   }
 
   // function viewAllNotes() {
