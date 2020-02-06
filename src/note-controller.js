@@ -11,7 +11,7 @@
   }
 
   Controller.prototype.addNote = function(note) {
-    this.noteListModel.addNote(note);
+    this.noteListModel.addNote(Note(note));
   }
   Controller.prototype.insertHTML = function() {
     document.write(this.noteListView.displayNotes());
