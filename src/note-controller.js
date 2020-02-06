@@ -5,6 +5,7 @@
   }
 
   Controller.prototype.changeText = function(text) {
+    console.log('inside the change text element')
     let element = document.getElementById("app");
     element.innerHTML = text;
   }

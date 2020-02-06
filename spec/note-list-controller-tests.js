@@ -1,26 +1,42 @@
 (function(exports) {
   var noteList
-
+  var controller
 
   function addNoteFromController() {
-    noteList = NoteList()
-    controller = Controller(noteList)
+    testSetup()
     console.log('add note to array from controller')
     controller.addNote('note1')
     expect(controller.noteListModel.list[0].viewNote()).toEqual('note1')
   }
 
   function changeTextFromController() {
-    
-    var mockElement = document.createElement("div");
-    mockElement.id = "app";
-    document.getElementById("app").appendChild("hello");
-    console.log(document);
+    fakeDiv()
+    console.log("Changing text from controller");
+    console.log("getting the div element: ", (JSON.stringify(document.getElementById("app").innerHTML)));
+    testSetup()
+    controller.changeText('wassup')
+    console.log("changed the div element: ", (typeof JSON.stringify(document.getElementById("app"))));
+    expect(document.getElementById("app").textContent).toEqual('wassup')
+  }
+
+  function insertNoteinHtml() {
+    console.log("Inserting text from controller");
+    fakeDiv()
+    testSetup()
+    controller.addNote("Hello Partner")
+    controller.insertHTML()
+    expect(document.getElementsByTagName('li').item(0).innerText).toEqual('Hello Partner')
+  }
+
+  fakeDiv = function() {
+    var mockElement = document.createElement('div');
+    mockElement.id = 'app'
+    document.getElementsByTagName('body').item(0).appendChild(mockElement)
+  }
+
+  testSetup = function() {
     noteList = NoteList()
     controller = Controller(noteList)
-    console.log('change text from controller')
-    controller.changeText('wassup')
-    expect(document.getElementById("app").textContent).toEqual('wassup')
   }
 
   // function viewAllNotes() {
@@ -33,5 +49,6 @@
 
   addNoteFromController()
   changeTextFromController()
+  insertNoteinHtml()
   // viewAllNotes()
 })(this)
