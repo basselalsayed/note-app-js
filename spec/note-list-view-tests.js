@@ -19,12 +19,12 @@
     console.log('displayNotesMultiple')
 
     let noteList = new NoteList()
-    noteList.addNote('hello')
+    noteList.addNote("The text in a note could be too long to be shown in full in the main note list. In this challenge, youll update your note list view code to only show the first few characters ")
     noteList.addNote('howdy')
 
     noteListView = new NoteListView(noteList)
     
-    expect(noteListView.displayNotes()).toEqual('<ul><li><div>hello</div></li><li><div>howdy</div></li></ul>')
+    expect(noteListView.displayNotes()).toEqual('<ul><li><div>The text in a note c</div></li><li><div>howdy</div></li></ul>')
   }
 
 
@@ -36,6 +36,7 @@
     
     expect(noteListView.displayNotes()).toEqual('Nothing to see here...')
   }
+  
   
   notesDisplay()
   notesDisplayMultiple()

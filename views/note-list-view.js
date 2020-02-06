@@ -11,7 +11,7 @@
       let listLength = this.noteList.viewAll().length
       if (listLength > 0) {
         for (i = 0; i < listLength; i++) {
-          output.push(`<li><div>${this.noteList.viewAll()[i].text}</div></li>`)
+          output.push(`<li><div>${this.noteList.viewAll()[i].text.slice(0, 20)}</div></li>`)
           }
           return `<ul>${output.join("")}</ul>`;
       } else {
