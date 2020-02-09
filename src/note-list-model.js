@@ -10,6 +10,11 @@
     return this.list
   }
 
+  NoteList.prototype.findNote = function(id) {
+    console.log(this.viewAll());
+    return this.list.find(element => element.id === id);
+  };
+
   var noteList = function() { return new NoteList }
 
   exports.NoteList = noteList;

@@ -13,7 +13,7 @@
     // note = Note('hello')
     noteList.addNote(note)
     noteListView = new NoteListView(noteList)
-    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a href='#notes/${note.id}'>hello</a></div></li></ul>`)
+    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a id='${note.id}' href='#notes/${note.id}'>hello</a></div></li></ul>`)
   }
 
   function notesDisplayMultiple() {
@@ -24,9 +24,8 @@
     noteList.addNote(note3)
     noteList.addNote(note2)
     noteListView = new NoteListView(noteList)
-    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a href='#notes/${note3.id}'>The text in a note c</a></div></li><li><div><a href='#notes/${note2.id}'>howdy</a></div></li></ul>`)
+    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a id='${note3.id}' href='#notes/${note3.id}'>The text in a note c</a></div></li><li><div><a id='${note2.id}' href='#notes/${note2.id}'>howdy</a></div></li></ul>`)
   }
-
 
   function notesDisplayNone() {
     console.log('displayNotesNone')

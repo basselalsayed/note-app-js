@@ -8,18 +8,24 @@
  
   </head>
   <body>
-    
     <script src='src/note-model.js'></script>
     <script src='src/note-list-model.js'></script>
     <script src='views/note-list-view.js'></script>
-    <script src='src/note-controller.js'></script>
     <script src='src/single-note-view.js'></script>
+    <script src='src/note-controller.js'></script>
 
     <script src='spec/test.js'></script>
     <script src='spec/note-tests.js'></script>
     <script src='spec/note-list-tests.js'></script>
     <script src='spec/note-list-view-tests.js'></script>
-    <script src='spec/note-list-controller-tests.js'></script>
     <script src='spec/single-note-view-spec.js'></script>
+    <script src='spec/note-list-controller-tests.js'></script>
+    <script>
+      let n = NoteList()
+      let c = new Controller(n)
+      c.addNote("Howdy Partner")
+      c.insertHTML()
+      c.listenForClick()
+    </script>
   </body>
 </html>

@@ -10,21 +10,24 @@
     <div id="animal"></div>
 
     <script>
-      makeTigerLinkClickSayTiger();
+      makeUrlChangeShowNoteForCurrentPage();
 
-      function makeTigerLinkClickSayTiger() {
-        document
-          .getElementById("tiger-link")
-          .addEventListener("click", function(clickEvent) {
-            clickEvent.preventDefault();
-            sayTiger();
-          });
+      function makeUrlChangeShowNoteForCurrentPage() {
+        window.addEventListener("hashchange", showNoteForCurrentPage);
       };
 
-      function sayTiger() {
+      function showNoteForCurrentPage() {
+        showNote(getNoteFromUrl(window.location));
+      };
+
+      function getNoteIdFromUrl(location) {
+        return location.hash.split("#notes/")[1];
+      };
+
+      function showNote(id) {
         document
-          .getElementById("animal")
-          .innerHTML = "tiger";
+          .getElementById("app")
+          .innerHTML = findNote(id).text;
       };
     </script>
   </body>

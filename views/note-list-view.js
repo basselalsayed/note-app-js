@@ -17,7 +17,6 @@
       } else {
         return 'Nothing to see here...'
       }
-
   }
 
   var noteListView = function(notelist) {

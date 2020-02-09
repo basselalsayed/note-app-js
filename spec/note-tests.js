@@ -2,6 +2,7 @@
 
   var text = 'My favourite language is JavaScript'
   var note = new Note(text)
+  
   function testNoteText() {
     console.log('testNoteText')
     expect(note.text).toEqual(text)

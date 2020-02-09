@@ -3,7 +3,7 @@
   let id = 0
   function Note(text) {
     this.text = text;
-    this.id = id++;
+    this.id = (id++).toString();
   }
 
   Note.prototype.viewNote = function () {
